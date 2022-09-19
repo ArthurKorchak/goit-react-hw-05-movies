@@ -3,5 +3,14 @@ h1 {
 }
 
 .page {
-    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 35px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, Outlet, useNavigate } from 'react-router-dom';
 import { getMovieDetails } from '../../services/requestsAPI';
+import noimage from '../../images/noimage.png';
 import s from './MovieDetails.module.css';
 
 export default function Header() {
@@ -26,7 +27,7 @@ export default function Header() {
             <div className={s.wrapper}>
                 <button onClick={handleGoBack}>{'<- Go back'}</button>
                 <div className={s.details}>
-                    <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width="250" height="375" alt="poster" />
+                    <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : noimage} width="250" height="375" alt="poster" />
                     <div className={s.stats}>
                         <h1>{title} ({release_date.slice(0, 4)})</h1>
                         <p>User score: {(vote_average * 10).toFixed(0)}%</p>

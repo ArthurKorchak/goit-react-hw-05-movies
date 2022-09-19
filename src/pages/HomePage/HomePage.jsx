@@ -15,7 +15,7 @@ export default function HomePage() {
     return (
         <div className={s.page}>
             <h1>Trending tooday</h1>
-            <ul>
+            <ul className={s.list}>
                 {trendingList.map(({ id, title }) => (
                     <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>
                 ))}
