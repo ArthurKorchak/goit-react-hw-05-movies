@@ -1,0 +1,32 @@
+.wrapper {
+    display: inline-block;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 15px 15px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 35px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+button {
+    display: inline;
+    margin-left: 15px;
+}
