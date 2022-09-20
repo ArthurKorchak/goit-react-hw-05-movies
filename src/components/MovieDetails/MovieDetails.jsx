@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { getMovieDetails } from '../../services/requestsAPI';
 import noimage from '../../images/noimage.png';
 import s from './MovieDetails.module.css';
@@ -7,7 +7,7 @@ import s from './MovieDetails.module.css';
 export default function Header() {
     const [movieData, setMovieData] = useState(null);
     const { movieId } = useParams();
-    const navigate = useNavigate();
+    const location = useLocation();
     
     useEffect(() => {
         getMovieDetails(movieId)
@@ -16,16 +16,12 @@ export default function Header() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    function handleGoBack() {
-        navigate("/", { replace: true });
-    };
-
     if (movieData) {
         const { poster_path, title, release_date, vote_average, overview, genres } = movieData;
 
         return (
             <div className={s.wrapper}>
-                <button onClick={handleGoBack}>{'<- Go back'}</button>
+                <Link className={s.backLink} to={location.state || '/'}>{'<- Go back'}</Link>
                 <div className={s.details}>
                     <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : noimage} width="250" height="375" alt="poster" />
                     <div className={s.stats}>
@@ -42,8 +38,8 @@ export default function Header() {
                 <div  className={s.addInfo}>
                     <p>Additional information</p>
                     <ul>
-                        <li><Link to={`/movies/${movieId}/cast`}>Cast</Link></li>
-                        <li><Link to={`/movies/${movieId}/reviews`}>Reviews</Link></li>
+                        <li><Link to={`/movies/${movieId}/cast`} state={location.state}>Cast</Link></li>
+                        <li><Link to={`/movies/${movieId}/reviews`} state={location.state}>Reviews</Link></li>
                     </ul>
                 </div>
                 <Outlet />

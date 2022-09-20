@@ -17,7 +17,7 @@ export default function HomePage() {
             <h1>Trending tooday</h1>
             <ul className={s.list}>
                 {trendingList.map(({ id, title }) => (
-                    <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>
+                    <li key={id}><Link to={`/movies/${id}`} state={'/'}>{title}</Link></li>
                 ))}
             </ul>
         </div>

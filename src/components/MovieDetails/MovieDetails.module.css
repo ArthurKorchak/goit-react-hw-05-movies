@@ -24,7 +24,12 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 
-button {
+.backLink {
     display: inline;
+    text-decoration: none;
     margin-left: 15px;
+    padding: 4px 8px;
+    color: white;
+    background-color: rgb(51, 116, 255);
+    border-radius: 6px;
 }
