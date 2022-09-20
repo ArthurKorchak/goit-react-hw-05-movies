@@ -15,7 +15,7 @@ export default function Cast() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    if (actors) {
+    if (actors?.length > 0) {
         return (
             <ul className={s.list}>
                 {actors.map(({ id, profile_path, original_name, character }) => (
@@ -27,5 +27,7 @@ export default function Cast() {
                 ))}
             </ul>
         );
+    } else {
+        return (<p className={s.item}>We don't have any actor for this movie</p>);
     };
 };
